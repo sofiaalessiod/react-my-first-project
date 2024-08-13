@@ -21,6 +21,9 @@ export default function HomePage() {
       }
 
       console.log(usersData);
+
+      usersData.sort((user1, user2) => user1.name.localeCompare(user2.name)); // sort the users array by name
+
       setUsers(usersData); // set the users state with the data from local storage
     }
   }, []);
