@@ -19,6 +19,7 @@ export default function Create() {
     event.preventDefault();
 
     const newUser = {
+      id: Date.now().toString(), // create a unique id
       name: name,
       title: title,
       mail: mail,
@@ -26,6 +27,14 @@ export default function Create() {
     };
 
     console.log(newUser);
+
+    const data = localStorage.getItem("users"); // get data from local storage
+    const usersData = JSON.parse(data) || []; // parse the data from string to javascript array
+
+    usersData.push(newUser); // add the new user to the array
+    localStorage.setItem("users", JSON.stringify(usersData)); // save the users array to local storage
+
+    navigate("/"); // navigate to the home page
   }
 
   return (
