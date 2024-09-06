@@ -29,7 +29,7 @@ export default function HomePage() {
   }, []);
 
   async function fetchUsers() {
-    const response = await fetch("https://raw.githubusercontent.com/cederdorff/race/master/data/users.json"); // fetch the data from the API
+    const response = await fetch(""); // fetch the data from the API
     const data = await response.json(); // parse the data from string to javascript array
     localStorage.setItem("users", JSON.stringify(data)); // save the data to local storage
     return data; // return the data
@@ -38,7 +38,7 @@ export default function HomePage() {
   return (
     <div className="page">
       <section className="grid">
-        {users.map(user => (
+        {users.map((user) => (
           <User key={user.id} user={user} />
         ))}
       </section>
