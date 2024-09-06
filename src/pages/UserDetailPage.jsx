@@ -9,7 +9,7 @@ export default function UpdatePage() {
   useEffect(() => {
     const data = localStorage.getItem("users"); // get data from local storage
     const usersData = JSON.parse(data) || []; // parse the data from string to javascript array
-    const user = usersData.find(user => user.id === id); // find the user with the id from the params
+    const user = usersData.find((user) => user.id === id); // find the user with the id from the params
     console.log(user);
     setUser(user); // set the user state with the data from local storage
   }, [id]); // <--- "[id]" VERY IMPORTANT!!!
